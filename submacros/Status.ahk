@@ -83,6 +83,8 @@ MonsterRespawnTime := A_Args[35]
 
 HoneyUpdateSSCheck := A_Args[36]
 
+TeleMode := A_Args[37]
+
 pToken := Gdip_Startup()
 OnExit(ExitFunc)
 OnMessage(0x004A, nm_sendPostData, 255)
