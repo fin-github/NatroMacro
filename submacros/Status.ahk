@@ -2448,11 +2448,14 @@ class discord
 
 	static Tele_sendEmbed(message, color, content, pBitmap, channel, replyID)
 	{
-		
+
 	}
 
 	static SendEmbed(message, color:=3223350, content:="", pBitmap:=0, channel:="", replyID:=0)
 	{
+		if (TeleMode = 1) {
+			return Tele_sendEmbed(message, color, content, pBitmap, channel, replyID)
+		}
 		payload_json :=
 		(
 		'
