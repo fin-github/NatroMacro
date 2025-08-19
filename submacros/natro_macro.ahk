@@ -365,7 +365,7 @@ nm_importConfig()
 		, "Webhook", ""
 		, "BotToken", ""
 		, "TeleBotToken", ""
-		, "TeleChatID"
+		, "TeleChatID", ""
 		, "MainChannelCheck", 1
 		, "MainChannelID", ""
 		, "ReportChannelCheck", 1
