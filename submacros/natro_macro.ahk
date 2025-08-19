@@ -364,6 +364,7 @@ nm_importConfig()
 		, "DiscordCheck", 0
 		, "Webhook", ""
 		, "BotToken", ""
+		, "TeleMode", ""
 		, "TeleBotToken", ""
 		, "TeleChatID", ""
 		, "MainChannelCheck", 1
