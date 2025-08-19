@@ -2448,7 +2448,7 @@ nm_command(command)
 class discord
 {
 	static baseURL := "https://discord.com/api/v10/"
-	static baseTele := "https://api.telegram.org/bot<token>/"
+	static baseTele := "https://api.telegram.org/bot" TeleBotToken "/"
 
 	static Tele_sendEmbed(message, color, content, pBitmap, channel, replyID)
 	{
