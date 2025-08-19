@@ -84,6 +84,7 @@ MonsterRespawnTime := A_Args[35]
 HoneyUpdateSSCheck := A_Args[36]
 
 TeleMode := A_Args[37]
+TeleBotToken := A_Args[38]
 
 pToken := Gdip_Startup()
 OnExit(ExitFunc)
@@ -2447,6 +2448,7 @@ nm_command(command)
 class discord
 {
 	static baseURL := "https://discord.com/api/v10/"
+	static baseTele := "https://api.telegram.org/bot<token>/"
 
 	static Tele_sendEmbed(message, color, content, pBitmap, channel, replyID)
 	{
