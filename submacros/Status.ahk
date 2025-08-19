@@ -2445,6 +2445,32 @@ nm_command(command)
 	}
 }
 
+
+class URL { ; im not even gonna lie, chatgpt clutched, i dont care enough to actually make this myself
+    static ParseQueryString(qs) {
+        result := {}
+        if (qs = "")
+            return result
+
+        for pair in StrSplit(qs, "&") {
+            kv := StrSplit(pair, "=")
+            key := kv[1]
+            value := kv.Length() > 1 ? kv[2] : ""
+            result[key] := value
+        }
+        return result
+    }
+
+    ; Build a query string from an object
+    static BuildQueryString(obj) {
+        qs := ""
+        for key, value in obj {
+            qs .= (qs != "" ? "&" : "") . key . "=" . value
+        }
+        return qs
+    }
+}
+
 class discord
 {
 	static baseURL := "https://discord.com/api/v10/"
@@ -2452,7 +2478,7 @@ class discord
 
 	static Tele_sendEmbed(message, color, content, pBitmap, channel, replyID)
 	{
-
+		
 	}
 
 	static SendEmbed(message, color:=3223350, content:="", pBitmap:=0, channel:="", replyID:=0)
