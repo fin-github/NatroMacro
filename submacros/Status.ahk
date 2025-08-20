@@ -2480,7 +2480,7 @@ class discord
 
 		url := discord.baseTele "sendMessage?"
 
-		text := "<b>Title:</b> " content "<br><code>" message "</code>"
+		text := "<b>Title:</b> " content "`r<code>" message "</code>"
 
 		qs_args := {}
 		qs_args.text := text
@@ -2494,7 +2494,7 @@ class discord
 		wr.WaitForResponse()
 
 		if (wr.Status != 200) {
-				throw Error("HTTP Error: " wr.Status " - " wr.StatusText)
+			throw Error("HTTP Error: " wr.Status " - " wr.StatusText)
 		}
 
 		return wr.ResponseText
