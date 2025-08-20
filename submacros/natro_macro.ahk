@@ -7206,12 +7206,20 @@ nm_TeleGUI(*) {
 
     TeleGUI.Add("GroupBox", "w360 h120", "Telegram Settings")
 
-    TeleGUI.Add("Button", "x20 y40 w80 h25", "Click")
-    TeleGUI.Add("Edit", "x110 y40 w220 h25 vShortBox")
-    TeleGUI.Add("Edit", "x20 y80 w310 h25 vLongBox")
+    TeleGUI.Add("Button", "x20 y40 w80 h25", "Enable") ; todo: make dynamic
+
+    ShortBox := TeleGUI.Add("Edit", "x110 y40 w220 h25 vShortBox", "Chat ID")
+    LongBox  := TeleGUI.Add("Edit", "x20 y80 w310 h25 vLongBox", "Bot Token")
+
+    ShortBox.OnEvent("Focus", (*) => (ShortBox.Text = "Chat ID" ? ShortBox.Text := "" : 0))
+    ShortBox.OnEvent("LoseFocus", (*) => (ShortBox.Text = "" ? ShortBox.Text := "Chat ID" : 0))
+
+    LongBox.OnEvent("Focus", (*) => (LongBox.Text = "Bot Token" ? LongBox.Text := "" : 0))
+    LongBox.OnEvent("LoseFocus", (*) => (LongBox.Text = "" ? LongBox.Text := "Bot Token" : 0))
 
     TeleGUI.Show("w380 h220")
 }
+
 
 
 ; SETTINGS TAB
