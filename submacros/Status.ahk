@@ -2467,7 +2467,11 @@ class discord
 
 		url := discord.baseTele "sendMessage?"
 		TeleChatID := TeleChatID + 0 ; Convert telechatid to int
-		url .= QueryString({text: message, chat_id: TeleChatID})
+
+		qs_args := {}
+		qs_args.text := message
+		qs_args.chat_id := TeleChatID
+		url .= QueryString(qs_args)
 
 		wr.Open("POST", url, true)
 		wr.SetTimeouts(0, 60000, 120000, 30000)
