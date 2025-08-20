@@ -2479,6 +2479,7 @@ class discord
 
 	static Tele_sendEmbed(message, color, content, pBitmap, channel, replyID)
 	{
+		; TODO: add color support for tele
 		wr := ComObject("WinHttp.WinHttpRequest.5.1")
 		wr.Option[9] := 2720
 
@@ -2487,7 +2488,10 @@ class discord
 		url .= URL.BuildQueryString({text: message, chat_id: TeleChatID})
 
 		wr.Open("POST", url, true)
-
+		wr.SetTimeouts(0, 60000, 120000, 30000)
+		wr.Send()
+		wr.WaitForResponse()
+		return wr.ResponseText
 	}
 
 	static SendEmbed(message, color:=3223350, content:="", pBitmap:=0, channel:="", replyID:=0)
