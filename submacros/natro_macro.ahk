@@ -7216,7 +7216,7 @@ nm_TeleGUI(*) {
 		TeleMode := !TeleMode
 		ToggleBtn.Text := (TeleMode = 1 ? "Disable" : "Enable")
 	}
-	ToggleBtn.OnEvent("Click", (*) => (TeleMode := !TeleMode))
+	ToggleBtn.OnEvent("Click", ToggleTeleMode)
 
     ShortBox.OnEvent("Focus", (*) => (ShortBox.Text = "Chat ID" ? ShortBox.Text := "" : 0))
     ShortBox.OnEvent("LoseFocus", (*) => (ShortBox.Text = "" ? ShortBox.Text := "Chat ID" : 0))
