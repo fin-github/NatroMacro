@@ -2449,10 +2449,6 @@ nm_command(command)
 QueryString(obj) {
     qs := ""
     
-    if !HasMethod(obj, "__Enum") {
-        throw ValueError("Object is not enumerable")
-    }
-    
     if (obj is Map) {
         for key, value in obj {
             qs .= (qs != "" ? "&" : "") . key . "=" . value
@@ -2483,7 +2479,6 @@ class discord
 		wr.Option[9] := 2720
 
 		url := discord.baseTele "sendMessage?"
-		TeleChatID := TeleChatID + 0 ; Convert telechatid to int
 
 		qs_args := {}
 		qs_args.text := message
