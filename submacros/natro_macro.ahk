@@ -7206,7 +7206,8 @@ nm_TeleGUI(*) {
 
     TeleGUI.Add("GroupBox", "w360 h120", "Telegram Settings")
 
-    TeleGUI.Add("Button", "x20 y40 w80 h25", "Enable") ; todo: make dynamic
+	BtnText := (TeleMode = 1 ? "Disable" : "Enable")
+    TeleGUI.Add("Button", "x20 y40 w80 h25 vTeleBtn", BtnText)
 
     ShortBox := TeleGUI.Add("Edit", "x110 y40 w220 h25 vShortBox", "Chat ID")
     LongBox  := TeleGUI.Add("Edit", "x20 y80 w310 h25 vLongBox", "Bot Token")
