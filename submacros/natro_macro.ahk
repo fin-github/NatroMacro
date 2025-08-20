@@ -2540,7 +2540,8 @@ MainGui.SetFont("s8 cDefault Norm", "Tahoma")
 MainGui.Add("Text", "x255 y55 w119 h120 -Wrap vTotalStats")
 MainGui.Add("Text", "x375 y55 w119 h120 -Wrap vSessionStats")
 MainGui.Add("Button", "x290 y39 w50 h15 vResetTotalStats Disabled", "Reset").OnEvent("Click", nm_ResetTotalStats)
-MainGui.Add("Button", "x265 y202 w215 h24 vWebhookGUI Disabled", "Change Discord Settings").OnEvent("Click", nm_WebhookGUI)
+MainGui.Add("Button", "x318 y202 w161 h24 vWebhookGUI Disabled", "Change Discord").OnEvent("Click", nm_WebhookGUI)
+MainGui.Add("Button", "x265 y202 w53 h24 vTeleWebhookGUI Disabled", "Telegram").OnEvent("Click", nm_TeleGUI)
 nm_setStats()
 SetLoadingProgress(28)
 
@@ -7192,6 +7193,10 @@ nm_WebhookGUI(*){
 	exec.StdIn.Write(script), exec.StdIn.Close()
 
 	return (WGUIPID := exec.ProcessID)
+}
+
+nm_TeleGUI(*){
+	MsgBox "hewo"
 }
 
 ; SETTINGS TAB
