@@ -2446,15 +2446,12 @@ nm_command(command)
 	}
 }
 
-
-class URL { ; im not even gonna lie, chatgpt clutched, i dont care enough to actually make this myself
-    static BuildQueryString(obj) {
-        qs := ""
-        for key, value in obj {
-            qs .= (qs != "" ? "&" : "") . key . "=" . value
-        }
-        return qs
+QueryString(obj) {
+	qs := ""
+    for key, value in obj {
+        qs .= (qs != "" ? "&" : "") . key . "=" . value
     }
+    return qs
 }
 
 class discord
@@ -2470,7 +2467,7 @@ class discord
 
 		url := discord.baseTele "sendMessage?"
 		TeleChatID := TeleChatID + 0 ; Convert telechatid to int
-		url .= URL.BuildQueryString({text: message, chat_id: TeleChatID})
+		url .= QueryString({text: message, chat_id: TeleChatID})
 
 		wr.Open("POST", url, true)
 		wr.SetTimeouts(0, 60000, 120000, 30000)
