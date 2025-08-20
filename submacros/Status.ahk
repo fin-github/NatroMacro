@@ -85,6 +85,7 @@ HoneyUpdateSSCheck := A_Args[36]
 
 TeleMode := A_Args[37]
 TeleBotToken := A_Args[38]
+TeleChatID := A_Args[39]
 
 pToken := Gdip_Startup()
 OnExit(ExitFunc)
