@@ -7197,17 +7197,22 @@ nm_WebhookGUI(*){
 	return (WGUIPID := exec.ProcessID)
 }
 
-nm_TeleGUI(*){
-	TeleGUI := Gui("", "Change Telegram Settings")
-	TeleGUI.BackColor := "b0b0b0"
-	TeleGUI.MarginX := 10
+nm_TeleGUI(*) {
+    TeleGUI := Gui("", "Change Telegram Settings")
+    TeleGUI.BackColor := "b0b0b0"
+    TeleGUI.MarginX := 10
     TeleGUI.MarginY := 10
-	TeleGUI.SetFont("s9", "Segoe UI")
+    TeleGUI.SetFont("s9", "Segoe UI")
 
-	TeleGUI.Add("GroupBox", "w360 h120", "Telegram Settings")
+    TeleGUI.Add("GroupBox", "w360 h120", "Telegram Settings")
 
-	TeleGUI.Show("w380 h220")
+    TeleGUI.Add("Button", "x20 y40 w80 h25", "Click")
+    TeleGUI.Add("Edit", "x110 y40 w220 h25 vShortBox")
+    TeleGUI.Add("Edit", "x20 y80 w310 h25 vLongBox")
+
+    TeleGUI.Show("w380 h220")
 }
+
 
 ; SETTINGS TAB
 ; ------------------------
