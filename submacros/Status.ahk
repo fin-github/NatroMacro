@@ -2484,7 +2484,7 @@ class discord
 		wr.Option[9] := 2720
 
 		url := discord.baseTele "sendMessage?"
-		TeleChatID + 0 ; Convert telechatid to int
+		TeleChatID := TeleChatID + 0 ; Convert telechatid to int
 		url .= URL.BuildQueryString({text: message, chat_id: TeleChatID})
 
 		wr.Open("POST", url, true)
