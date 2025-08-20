@@ -2478,7 +2478,14 @@ class discord
 
 	static Tele_sendEmbed(message, color, content, pBitmap, channel, replyID)
 	{
-		
+		wr := ComObject("WinHttp.WinHttpRequest.5.1")
+		wr.Option[9] := 2720
+
+		url := discord.baseTele "sendMessage?"
+		url .= URL.BuildQueryString({text: message, chat_id: 123}) ; fill in chat id later
+
+		wr.Open("POST", url, true)
+
 	}
 
 	static SendEmbed(message, color:=3223350, content:="", pBitmap:=0, channel:="", replyID:=0)
