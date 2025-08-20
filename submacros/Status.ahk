@@ -2488,7 +2488,8 @@ class discord
 
 		url := discord.baseTele "sendMessage?"
 
-		text := "<b>Title:</b> " content "`r<code>" message "</code>"
+		text := "<b>Title:</b> " content "`n<code>" message "</code>"
+		text := URIEncode(text)
 
 		qs_args := {}
 		qs_args.text := text
