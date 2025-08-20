@@ -7207,10 +7207,16 @@ nm_TeleGUI(*) {
     TeleGUI.Add("GroupBox", "w360 h120", "Telegram Settings")
 
 	BtnText := (TeleMode = 1 ? "Disable" : "Enable")
-    TeleGUI.Add("Button", "x20 y40 w80 h25 vTeleBtn", BtnText)
+    ToggleBtn := TeleGUI.Add("Button", "x20 y40 w80 h25 vTeleBtn", BtnText)
 
     ShortBox := TeleGUI.Add("Edit", "x110 y40 w220 h25 vShortBox", "Chat ID")
     LongBox  := TeleGUI.Add("Edit", "x20 y80 w310 h25 vLongBox", "Bot Token")
+
+	ToggleTeleMode() {
+		TeleMode := !TeleMode
+		ToggleBtn.Text := (TeleMode = 1 ? "Disable" : "Enable")
+	}
+	ToggleBtn.OnEvent("Click", (*) => (TeleMode := !TeleMode))
 
     ShortBox.OnEvent("Focus", (*) => (ShortBox.Text = "Chat ID" ? ShortBox.Text := "" : 0))
     ShortBox.OnEvent("LoseFocus", (*) => (ShortBox.Text = "" ? ShortBox.Text := "Chat ID" : 0))

@@ -95,6 +95,7 @@ OnMessage(0x5552, nm_setGlobalInt, 255)
 OnMessage(0x5553, nm_setGlobalStr, 255)
 OnMessage(0x5556, nm_sendHeartbeat)
 OnMessage(0x5559, nm_sendItemPicture)
+OnMessage(0x5560, nm_updateTele)
 
 discord.SendEmbed("Connected to Discord!", 5066239)
 
@@ -2473,6 +2474,11 @@ URIEncode(Url, Flags := 0x000C3000) {
 		VarSetStrCapacity(&Esc, CC), Result := DllCall("Shlwapi.dll\UrlEscapeW", "Str", Url, "Str", &Esc, "UIntP", &CC, "UInt", Flags, "UInt")
 	Until Result != 0x80004003 ; E_POINTER
 	Return Esc
+}
+
+nm_updateTele(*) {
+	global TeleMode
+	
 }
 
 class discord
