@@ -3932,11 +3932,13 @@ nm_TabStatusLock(){
 	MainGui["StatusLogReverse"].Enabled := 0
 	MainGui["ResetTotalStats"].Enabled := 0
 	MainGui["WebhookGUI"].Enabled := 0
+	MainGui["TeleWebhookGUI"].Enabled := 0
 }
 nm_TabStatusUnLock(){
 	MainGui["StatusLogReverse"].Enabled := 1
 	MainGui["ResetTotalStats"].Enabled := 1
 	MainGui["WebhookGUI"].Enabled := 1
+	MainGui["TeleWebhookGUI"].Enabled := 1
 }
 nm_TabSettingsLock(){
 	global
@@ -7196,7 +7198,15 @@ nm_WebhookGUI(*){
 }
 
 nm_TeleGUI(*){
-	MsgBox "hewo"
+	TeleGUI := Gui("", "Change Telegram Settings")
+	TeleGUI.BackColor := "b0b0b0"
+	TeleGUI.MarginX := 10
+    TeleGUI.MarginY := 10
+	TeleGUI.SetFont("s9", "Segoe UI")
+
+	TeleGUI.Add("GroupBox", "w360 h120", "Telegram Settings")
+
+	TeleGUI.Show("w380 h220")
 }
 
 ; SETTINGS TAB
