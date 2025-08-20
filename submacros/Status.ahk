@@ -2447,10 +2447,27 @@ nm_command(command)
 }
 
 QueryString(obj) {
-	qs := ""
-    for key, value in obj {
-        qs .= (qs != "" ? "&" : "") . key . "=" . value
+    qs := ""
+    
+    if !HasMethod(obj, "__Enum") {
+        throw ValueError("Object is not enumerable")
     }
+    
+    if (obj is Map) {
+        for key, value in obj {
+            qs .= (qs != "" ? "&" : "") . key . "=" . value
+        }
+    }
+    else if (obj is Object) {
+        for key in obj.OwnProps() {
+            value := obj.%key%
+            qs .= (qs != "" ? "&" : "") . key . "=" . value
+        }
+    }
+    else {
+        throw TypeError("Expected Map or Object, got " . Type(obj))
+    }
+    
     return qs
 }
 
