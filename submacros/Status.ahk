@@ -2492,7 +2492,11 @@ class discord
 		wr.SetTimeouts(0, 60000, 120000, 30000)
 		wr.Send()
 		wr.WaitForResponse()
-		
+
+		if (wr.Status != 200) {
+				throw Error("HTTP Error: " wr.Status " - " wr.StatusText)
+		}
+
 		return wr.ResponseText
 	}
 
